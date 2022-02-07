@@ -52,11 +52,11 @@ export const AuthLogin = () => {
       <>
          <div className="w-full max-w-sm mx-auto overflow-hidden bg-gray-800 rounded-lg shadow-md dark:bg-white mt-20">
             <div className="px-6 py-4">
-               <h2 className="text-3xl font-bold text-center text-white dark:text-gray-700">Miscelánea Rodríguez</h2>
+               <h2 className="text-3xl font-bold text-center text-white dark:text-gray-700">Natursalud</h2>
 
-               <h3 className="mt-1 text-xl font-medium text-center text-gray-200 dark:text-gray-600">Bienvenido de vuelta</h3>
+               <h3 className="mt-1 text-xl font-medium text-center text-gray-200 dark:text-gray-600">Bienvenido</h3>
 
-               <p className="mt-1 text-center text-gray-400 dark:text-gray-500">Ingreso a nuestra tienda</p>
+               <p className="mt-1 text-center text-gray-400 dark:text-gray-500">Ingreso a nuestra tienda naturista</p>
 
                <form>
                   <div className="w-full mt-4">

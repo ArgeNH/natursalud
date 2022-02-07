@@ -23,7 +23,7 @@ export const Nabvar = () => {
       <>
          <Nav>
             <Logo to='/'>
-               Miscelánea<span>Rodríguez</span>
+               Natursalud 
             </Logo>
             <Hamburger onClick={open}>
                <span />

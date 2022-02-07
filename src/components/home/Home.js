@@ -14,17 +14,20 @@ export const Home = () => {
                             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Online Shopping</h2>
 
                             <p className="mt-4 text-gray-600">
-                                Nos ubicamos en el departamento de Boyaca, en el municipio de Tota.
+                            Nos ubicamos en la <a href='https://goo.gl/maps/b6vydGvuqT6JuroC6'> Carrera 15 #17-21 </a> en el municipio de Duitama.
+                            </p>
+                            <p>
+                                <a href='tel:314-6487235'>Llamar</a>
                             </p>
                         </div>
 
-                        <div className="relative h-60">
+{/*                         <div className="relative h-60">
                             <img
                                 className="absolute inset-0 object-contain w-full h-full rounded-xl"
                                 src="/assets/logo.png"
                                 alt="Miscelanea Rodriguez"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

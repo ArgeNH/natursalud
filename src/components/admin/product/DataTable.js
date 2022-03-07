@@ -11,7 +11,7 @@ const DataTable = ({ url, code, nameProduct, category, price, cant }) => {
 
    const formatPrice = setFormatPrice(price);
 
-   const urlDelete = `https://miscelanea-api.herokuapp.com/api/product/deleteProduct/${code}`;
+   const urlDelete = `https://natursalud.herokuapp.com/api/product/deleteProduct/${code}`;
 
    const handleDelete = async () => {
       await Swal.fire({

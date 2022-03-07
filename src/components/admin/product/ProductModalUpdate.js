@@ -5,7 +5,7 @@ import { fetcher } from '../../../utils/fetcher';
 
 export const ProductModalUpdate = ({ code, modal }) => {
 
-   const url = `https://miscelanea-api.herokuapp.com/api/product/${code}`
+   const url = `https://natursalud.herokuapp.com/api/product/${code}`
    const { data } = useSWR(url, fetcher);
 
    if (!data) return <div>loading...</div>

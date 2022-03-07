@@ -9,7 +9,7 @@ import { Skeleton } from './Skeleton';
 
 export const ProductCategory = ({ nameCategory }) => {
 
-   const url = 'https://miscelanea-api.herokuapp.com/api/product';
+   const url = 'https://natursalud.herokuapp.com/api/product';
 
    const { data } = useSWR(url, fetcher);
 

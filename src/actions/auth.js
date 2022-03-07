@@ -3,7 +3,7 @@ import { setError, startLoading } from "./ui";
 
 export const startLoginWithEmailAndPassword = (email, password) => {
    return async (dispatch) => {
-      await fetch('https://miscelanea-api.herokuapp.com/api/user/signin', {
+      await fetch('https://natursalud.herokuapp.com/api/user/signin', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export const startLoginWithEmailAndPassword = (email, password) => {
 
 export const startRegister = (name, lastName, password, email, city, address, phone) => {
    return async (dispatch) => {
-      await fetch('https://miscelanea-api.herokuapp.com/api/user/signup', {
+      await fetch('https://natursalud.herokuapp.com/api/user/signup', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json'

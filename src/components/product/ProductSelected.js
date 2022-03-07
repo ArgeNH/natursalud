@@ -11,7 +11,7 @@ export const ProductSelected = () => {
 
    const { code: codeParam, name } = useParams();
 
-   const urlProduct = `https://miscelanea-api.herokuapp.com/api/product/${codeParam}`
+   const urlProduct = `https://natursalud.herokuapp.com/api/product/${codeParam}`
    const { data } = useSWR(urlProduct, fetcher);
 
    if (!data) return <div>Loading...</div>;

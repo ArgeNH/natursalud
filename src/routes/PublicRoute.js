@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 
 export const PublicRoute = ({ children }) => {
 
-   const { loading } = useSelector(state => state.ui);
+   const { checking } = useSelector(state => state.auth);
 
-   return loading
+   return checking
       ? <Navigate to='/' />
       : children;
 };

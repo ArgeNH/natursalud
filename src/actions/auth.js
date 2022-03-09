@@ -49,6 +49,8 @@ export const startRegister = (name, lastName, password, email, city, address, ph
          .then(response => response.json())
          .then(data => {
             const { user } = data;
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(login(user._id, user.name, user.lastName, user.email, user.city, user.address, user.phone, user.role, data.token));
             dispatch(startLoading());
          })
@@ -56,26 +58,13 @@ export const startRegister = (name, lastName, password, email, city, address, ph
    }
 }
 
-export const login = (_id, name, lastName, email, city, address, phone, role, token) => ({
-   type: types.login,
-   payload: {
-      _id,
-      name,
-      lastName,
-      email,
-      city,
-      address,
-      phone,
-      role,
-      token
-   }
-})
+
 
 
 export const startChecking = () => {
    return async (dispatch) => {
       const token = localStorage.getItem('token') || '';
-
+      console.log(token);
       if (token) {
          const data = await fetch('https://natursalud.herokuapp.com/api/user/token/renew', {
             headers: {
@@ -99,6 +88,21 @@ export const startChecking = () => {
    }
 }
 const checkingFinish = () => ({ type: types.authCheckingFinished });
+
+export const login = (_id, name, lastName, email, city, address, phone, role, token) => ({
+   type: types.login,
+   payload: {
+      _id,
+      name,
+      lastName,
+      email,
+      city,
+      address,
+      phone,
+      role,
+      token
+   }
+})
 
 export const logoutUser = () => {
    return async (dispatch) => {

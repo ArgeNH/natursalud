@@ -2,37 +2,37 @@ export const info = [
     {
         id: 1,
         route: '/vitaminas',
-        nameCategory: 'Papeleria',
-        img: 'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1168&q=80'
+        nameCategory: 'Vitaminas',
+        img: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
     },
     {
         id: 2,
-        route: '/farmacia',
-        nameCategory: 'Farmacia',
-        img: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1179&q=80'
+        route: '/proteinas',
+        nameCategory: 'Proteinas',
+        img: 'https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'
     },
     {
         id: 3,
-        route: '/aseo',
-        nameCategory: 'Aseo',
-        img: 'https://www.prensacooperativa.com/wp-content/uploads/2020/06/tema-4-nazareth.jpg'
+        route: '/colagenos',
+        nameCategory: 'Colagenos',
+        img: 'https://images.unsplash.com/photo-1627467959547-8e44da7aa00a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
     },
     {
         id: 4,
-        route: '/hogar',
-        nameCategory: 'Hogar',
-        img: 'https://http2.mlstatic.com/D_NQ_NP_982681-MLM41652043024_052020-O.jpg'
+        route: '/aceites',
+        nameCategory: 'Aceites',
+        img: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
         id: 5,
-        route: '/ferreteria',
-        nameCategory: 'Ferreteria',
-        img: 'https://images.unsplash.com/photo-1605900009749-b3cdb75ce9c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
+        route: '/cosmeticos',
+        nameCategory: 'Cosmeticos',
+        img: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80'
     },
     {
         id: 6,
-        route: '/otros',
-        nameCategory: 'Otros',
-        img: 'https://images.unsplash.com/photo-1601598838108-5019bf3ea4a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+        route: '/medicamentos',
+        nameCategory: 'Medicamentos',
+        img: 'https://images.unsplash.com/photo-1550572017-26b5655c1e8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
     },
 ]

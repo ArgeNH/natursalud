@@ -1,8 +1,8 @@
 import React from 'react'
 import { ProductCategory } from './ProductCategory'
 
-export const Cleanliness = () => {
+export const Cosmetic = () => {
     return (
-        <ProductCategory nameCategory={'ASEO'} />
+        <ProductCategory nameCategory={'COSMETICOS'} />
     )
 }

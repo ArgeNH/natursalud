@@ -1,7 +1,7 @@
 export const info = [
     {
         id: 1,
-        route: '/papeleria',
+        route: '/vitaminas',
         nameCategory: 'Papeleria',
         img: 'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1168&q=80'
     },

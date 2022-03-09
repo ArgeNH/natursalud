@@ -123,13 +123,12 @@ export const ProductAdd = () => {
                      value={category}
                      onChange={handleInputChange}>
                      <option defaultValue>Seleccione la categoria...</option>
-                     <option value="PAPELERIA">Papeleria</option>
-                     <option value="FARMACIA">Farmacia</option>
-                     <option value="ASEO">Aseo</option>
-                     <option value="HOGAR">Hogar</option>
-                     <option value="FERRETERIA">Ferreteria</option>
-                     <option value="OTROS">Otros</option>
-                     <option value="PROMOCION">Promoción</option>
+                     <option value="VITAMINAS">Vitaminas</option>
+                     <option value="PROTEINAS">Proteinas</option>
+                     <option value="COLAGENOS">Colagenos</option>
+                     <option value="ACEITES">Aceites</option>
+                     <option value="COSMETICOS">Cosmeticos</option>
+                     <option value="MEDICAMENTOS">Medicamentos</option>
                   </select>
                </div>
 

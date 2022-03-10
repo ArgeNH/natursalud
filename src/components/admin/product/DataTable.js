@@ -77,7 +77,15 @@ const DataTable = ({ url, code, nameProduct, category, price, cant }) => {
             </td>
          </tr>
          {
-            modal ? <ProductModalUpdate code={code} modal={setModal} /> : null
+            modal ? <ProductModalUpdate 
+               code={code}
+               modal={setModal}
+               nameProduct={nameProduct}
+               category={category}
+               price={price}
+               cant={cant}
+
+            /> : null
          }
       </>
    );

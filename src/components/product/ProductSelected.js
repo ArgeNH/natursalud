@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import useSWR from 'swr';
 import { setFormatPrice } from '../../helpers/setFormatPrice';
 import { fetcher } from '../../utils/fetcher';
-import { setProduct } from '../../actions/cart';
+import { addNewProduct } from '../../actions/cart';
 
 export const ProductSelected = () => {
 
@@ -30,7 +30,7 @@ export const ProductSelected = () => {
 
    const handleCart = () => {
       console.log(counter);
-      dispatch(setProduct(code, nameProduct, total, counter, category, url, counter));
+      dispatch(addNewProduct(code, nameProduct, total, counter, category, url, counter));
    }
 
    return (

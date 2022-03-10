@@ -13,9 +13,6 @@ export const CardProduct = ({ route, nameCategory, img }) => {
             </div>
         </Link>
 
-
-
-
     )
 }
 CardProduct.propTypes = {

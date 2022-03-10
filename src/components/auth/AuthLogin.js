@@ -54,7 +54,7 @@ export const AuthLogin = () => {
             <form>
                <div className="bg-white px-10 py-5 rounded-xl w-screen shadow-md max-w-sm">
                   <div className="space-y-4">
-                     <h1 className="text-center text-2xl font-semibold text-gray-600">Natursalud</h1>
+                     <h1 className="text-center text-2xl font-semibold text-gray-600">Natursalud 🍃</h1>
                      <div>
                         <label className="block mb-1 text-gray-600 font-semibold">Correo</label>
                         <input

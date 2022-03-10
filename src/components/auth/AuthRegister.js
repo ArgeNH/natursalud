@@ -74,7 +74,7 @@ export const AuthRegister = () => {
 
    return (
       <>
-         <section className="max-w-4xl p-6 mx-auto bg-gray-800 rounded-lg shadow-xl shadow-gray-900 backdrop-blur-sm dark:bg-gray-800 mt-20">
+         {/* <section className="max-w-4xl p-6 mx-auto bg-gray-800 rounded-lg shadow-xl shadow-gray-900 backdrop-blur-sm dark:bg-gray-800 mt-20">
             <h2 className="text-3xl font-bold text-center text-gray-200 dark:text-white">Registro de clientes</h2>
             <form>
                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -169,7 +169,108 @@ export const AuthRegister = () => {
                   </a>
                </div>
             </form>
-         </section>
+         </section> */}
+
+         <div className="h-screen bg-gradient-to-br from-blue-300 to-indigo-600 flex justify-center items-center w-full">
+            <form>
+               <div className="bg-white px-10 py-5 rounded-xl w-screen shadow-md max-w-sm">
+                  <h1 className="text-center text-2xl font-semibold text-gray-600">Registrar</h1>
+                  <div className="grid grid-cols-1 gap-6 mt-1 sm:grid-cols-2">
+                     <InputRegister
+                        label='Nombre'
+                        name='name'
+                        type='text'
+                        place='ej. John'
+                        value={name}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Apellido'
+                        name='lastName'
+                        type='text'
+                        place='ej. Doe'
+                        value={lastName}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Contraseña'
+                        name='password'
+                        type='password'
+                        place='ej. ********'
+                        value={password}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Confirmacion'
+                        name='passwordConfirmed'
+                        type='password'
+                        place='ej. ********'
+                        value={passwordConfirmed}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Correo'
+                        name='email'
+                        type='email'
+                        place='ej. John@gmail.com'
+                        value={email}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Ciudad'
+                        name='city'
+                        type='text'
+                        place='ej. Tota'
+                        value={city}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Direccion'
+                        name='address'
+                        type='text'
+                        place='ej. Calle 10 #21-12'
+                        value={address}
+                        handle={handleInputChange}
+                     />
+
+                     <InputRegister
+                        label='Celular'
+                        name='phone'
+                        type='number'
+                        place='ej. ##########'
+                        value={phone}
+                        handle={handleInputChange}
+                     />
+                  </div>
+                  <div className="flex justify-end mt-6">
+                     <button
+                        className="mt-2 w-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-indigo-100 py-2 rounded-md text-lg tracking-wide"
+                        onClick={handleSubmit}
+                        type='submit'
+                     >
+                        Registrarse
+                     </button>
+                  </div>
+                  <div className="flex justify-end mt-6">
+                     <button
+                        className="mb-2 w-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-indigo-100 py-2 rounded-md text-lg tracking-wide"
+                        onClick={handleLogin}
+                     >
+                        Ya estoy registrado
+                     </button>
+                  </div>
+
+               </div>
+
+            </form>
+
+         </div>
 
          {
             msgError &&

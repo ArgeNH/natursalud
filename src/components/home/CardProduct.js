@@ -4,13 +4,18 @@ import PropTypes from 'prop-types';
 
 export const CardProduct = ({ route, nameCategory, img }) => {
     return (
-        <Link to={route} className="w-full max-w-xs text-center rounded-lg bg-gray-900 animate__animated animate__zoomIn">
-            <img className="object-cover object-center w-full h-48 mx-auto rounded-lg" src={img} alt={nameCategory} />
+    
+        <Link to={route} className="w-full max-w-xs bg-white text-center rounded-lg  animate__animated animate__zoomIn">
+            <img className="rounded-t-lg object-cover object-center w-full h-48 mx-auto" src={img} alt={nameCategory} />
 
-            <div className="mt-2">
-                <h3 className="text-lg font-medium text-gray-200 dark:text-gray-700">{nameCategory}</h3>
+            <div className="p-1">
+                <h5 className="text-gray-900 text-xl font-medium mb-2">{nameCategory}</h5>
             </div>
         </Link>
+
+
+
+
     )
 }
 CardProduct.propTypes = {

@@ -9,9 +9,9 @@ export const CardItem = ({ code, nameProduct, price, url }) => {
    const formatPrice = setFormatPrice(price);
 
    return (
-      <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto animate__animated animate__fadeInLeft">
+      <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto animate__animated animate__fadeInLeft overflow-hidden">
          <img className="object-cover w-full rounded-md h-72 xl:h-80" src={url} alt={nameProduct} />
-         <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{nameProduct}</h4>
+         <h4 className="w-4/5 mt-2 text-lg font-medium text-gray-700 dark:text-gray-200 text-ellipsis overflow-hidden whitespace-nowrap">{nameProduct}</h4>
          <p className="text-blue-500">{formatPrice}</p>
 
          <Link

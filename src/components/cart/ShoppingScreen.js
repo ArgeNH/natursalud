@@ -33,8 +33,25 @@ export const ShoppingScreen = () => {
       navigate('/', true);
    }
 
-   const handlePurchase = () => {
-      console.log('Pagar con Paypal');
+   const handlePurchase = async () => {
+      await fetch('https://natursalud.herokuapp.com/api/payments/orderBuy', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({ value: totalPrice })
+      })
+         .then(response => response.json())
+         .then(data => {
+            if (data.success) {
+               console.log(data.response.links[1].href);
+               window.location = data.response.links[1].href;
+            } else {
+               console.log('Fallo');
+            }
+
+         })
+         .catch(err => console.log('lol', err));
    }
 
    return (
@@ -79,7 +96,7 @@ export const ShoppingScreen = () => {
 
                                  <ButtonCart
                                     name={'Ir a comprar productos'}
-                                    color={'teal'}
+                                    color={'emerald'}
                                     action={handlePage}
                                  />
 
@@ -106,7 +123,7 @@ export const ShoppingScreen = () => {
                      <ButtonCart
                         size={products.length}
                         name={'Proximamente...'}
-                        color={'indigo'}
+                        color={'blue'}
                         action={handlePurchase}
                      />
 

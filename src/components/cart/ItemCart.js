@@ -8,15 +8,11 @@ import { capitalize } from '../../helpers/capitalize';
    pero tiene que ir una prop price 
 */
 
-export const ItemCart = ({ nameProduct, total, category, url, counter}) => {
-
-
-   
+export const ItemCart = ({ nameProduct, total, category, url, counter, price}) => {
 
    const format = setFormatPrice(total);
-   const formatPrice = setFormatPrice(total/counter);
+   const formatPrice = setFormatPrice(price);
    const categoryCap = capitalize(category);
-
 
    return (
       <li className="flex items-center justify-between py-4">

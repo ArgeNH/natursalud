@@ -43,6 +43,7 @@ export const ShoppingScreen = () => {
       })
          .then(response => response.json())
          .then(data => {
+            console.log(data);
             if (data.success) {
                console.log(data.response.links[1].href);
                window.location = data.response.links[1].href;

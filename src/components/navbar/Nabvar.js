@@ -10,6 +10,7 @@ export const Nabvar = () => {
 
 
    const { role, checking } = useSelector(state => state.auth);
+   const { products } = useSelector(state => state.cart);
    const dispatch = useDispatch();
    const [isOpen, setIsOpen] = useState(false);
 
@@ -36,7 +37,16 @@ export const Nabvar = () => {
                <MenuLink to='/' onClick={open}>Inicio</MenuLink>
                {role === 'ADMIN' && <MenuLink to='/productos' onClick={open}>Productos</MenuLink>}
                {/* <MenuLink to='/promociones' onClick={open}>Promociones</MenuLink> */}
-               <MenuLink to='/compra' onClick={open}>🛒</MenuLink>
+               <MenuLink to='/compra' onClick={open}>
+                  🛒
+                  {
+                     products.length !== 0 ?
+                        <span className="inline-block py-1 px-1.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded ml-2">
+                           {products.length}
+                        </span> :
+                        ''
+                  }
+               </MenuLink>
                <MenuLink to='/login' onClick={handleLogout}>{checking ? "Logout" : "Login"}</MenuLink>
             </Menu>
          </Nav>

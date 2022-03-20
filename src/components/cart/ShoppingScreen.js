@@ -5,13 +5,15 @@ import Swal from 'sweetalert2';
 
 import { setCartEmpty } from '../../actions/cart';
 import { setFormatPrice } from '../../helpers/setFormatPrice';
+import { Error404 } from '../alerts/Error404';
 import { ButtonCart } from './ButtonCart';
 import { ItemCart } from './ItemCart';
-
 
 export const ShoppingScreen = () => {
 
    const { products } = useSelector(state => state.cart);
+   const { _id } = useSelector(state => state.auth);
+
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
@@ -20,7 +22,7 @@ export const ShoppingScreen = () => {
 
    const handleRemoveCart = async () => {
       await Swal.fire({
-         position: 'top-end',
+         position: 'center',
          icon: 'success',
          title: 'Tu carrito ha sido borrado 😢',
          showConfirmButton: false,
@@ -34,25 +36,56 @@ export const ShoppingScreen = () => {
    }
 
    const handlePurchase = async () => {
-      await fetch('https://natursalud.herokuapp.com/api/payments/orderBuy', {
-         method: 'POST',
-         headers: {
-            'Content-Type': 'application/json'
-         },
-         body: JSON.stringify({ value: totalPrice })
-      })
-         .then(response => response.json())
-         .then(data => {
-            console.log(data);
-            if (data.success) {
-               console.log(data.response.links[1].href);
-               window.location = data.response.links[1].href;
-            } else {
-               console.log('Fallo');
-            }
 
-         })
-         .catch(err => console.log('lol', err));
+      Swal.fire({
+         title: 'Desea pagar el total de su carrito?',
+         showDenyButton: true,
+         showCancelButton: true,
+         confirmButtonText: 'Pagar',
+         denyButtonText: `Seguir comprando`,
+      }).then(async (result) => {
+         if (result.isConfirmed) {
+            await fetch('https://natursalud.herokuapp.com/api/payments/orderBuy', {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json'
+               },
+               body: JSON.stringify({
+                  value: totalPrice,
+                  products
+               })
+            })
+               .then(response => response.json())
+               .then(data => {
+                  if (data.success) {
+                     Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se te esta redireccionando a Paypal',
+                        showConfirmButton: false,
+                        timer: 2000
+                     });
+                     window.location = data.response.links[1].href;
+                  } else {
+                     console.log('Fallo');
+                  }
+
+               })
+               .catch(err => console.log('lol', err));
+         } else if (result.isDenied) {
+            navigate('/', { replace: true });
+         }
+      })
+
+   }
+
+   if (!_id) {
+      return (
+         <Error404
+            name={'Iniciar sesión'}
+            desc={'Porfavor inicie sesion para poder ver el carrito de compra 😄'}
+         />
+      )
    }
 
    return (

@@ -42,11 +42,15 @@ export const ProductAdd = () => {
          .then(data => {
             if (data.success) {
                Swal.fire({
-                  title: 'Producto Agregado',
-                  text: 'El producto se ha agregado correctamente',
+                  position: 'center',
                   icon: 'success',
-                  confirmButtonText: 'Ok'
-               })
+                  title: `El producto se ha agregado correctamente`,
+                  showConfirmButton: false,
+                  timer: 2000
+               });
+               setTimeout(() => {
+                  window.location.reload();
+               }, 2000);
             } else {
                Swal.fire({
                   title: 'Error',

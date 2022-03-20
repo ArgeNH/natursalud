@@ -1,5 +1,5 @@
 import { types } from "../types/types";
-import { setError, startLoading } from "./ui";
+import { setError } from "./ui";
 
 export const startLoginWithEmailAndPassword = (email, password) => {
    return async (dispatch) => {
@@ -23,7 +23,7 @@ export const startLoginWithEmailAndPassword = (email, password) => {
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(login(user._id, user.name, user.lastName, user.email, user.city, user.address, user.phone, user.role, data.token));
-            dispatch(startLoading());
+            window.location.reload();
          })
          .catch(err => console.log(err));
    }
@@ -52,7 +52,7 @@ export const startRegister = (name, lastName, password, email, city, address, ph
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(login(user._id, user.name, user.lastName, user.email, user.city, user.address, user.phone, user.role, data.token));
-            dispatch(startLoading());
+            window.location.reload();
          })
          .catch(err => console.log(err));
    }
@@ -73,6 +73,7 @@ export const startChecking = () => {
          });
          const response = await data.json();
          if (response.success === true) {
+            localStorage.setItem('auth', true);
             localStorage.setItem('token', response.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             const { user } = response;
@@ -87,6 +88,7 @@ export const startChecking = () => {
 
    }
 }
+
 const checkingFinish = () => ({ type: types.authCheckingFinished });
 
 export const login = (_id, name, lastName, email, city, address, phone, role, token) => ({
@@ -107,6 +109,9 @@ export const login = (_id, name, lastName, email, city, address, phone, role, to
 export const logoutUser = () => {
    return async (dispatch) => {
       localStorage.removeItem('token');
+      localStorage.removeItem('token-init-date');
+      localStorage.setItem('auth', false);
+      window.location.reload();
       dispatch(logout());
    }
 }

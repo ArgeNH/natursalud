@@ -36,6 +36,9 @@ const DataTable = ({ url, code, nameProduct, category, price, cant }) => {
                'Se ha eliminado el producto',
                'success'
             );
+            setTimeout(() => {
+               window.location.reload();
+            }, 2000);
          }
       });
    }

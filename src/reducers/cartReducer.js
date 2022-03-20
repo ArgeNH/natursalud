@@ -16,10 +16,7 @@ export const cartReducer = (state = initialState, action) => {
       case types.cartRemoveProduct:
          return {
             ...state,
-            products: [
-               ...state.products,
-               state.products.filter(product => product.code != action.payload.code)
-            ]
+            products: state.products.filter(product => product.code !== action.payload.code)
          }
 
       case types.cartSetEmpty:

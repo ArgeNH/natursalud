@@ -1,16 +1,15 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-export const PublicRoute = ({ children }) => {
+export const PublicRoute = ({ checking }) => {
 
-   const { checking } = useSelector(state => state.auth);
+   const location = useLocation();
 
    return checking
-      ? <Navigate to='/' />
-      : children;
+      ? <Navigate to='/' state={{ from: location }} />
+      : <Outlet />;
 };
 PublicRoute.propTypes = {
-   children: PropTypes.object.isRequired
+   checking: PropTypes.bool
 };

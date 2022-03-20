@@ -22,7 +22,7 @@ export const DashboardRoutes = () => {
          <Nabvar />
          <div className='container mx-auto px-4'>
             <Routes>
-               <Route path='/' element={<Home />} />
+               <Route path='' element={<Home />} />
                <Route path='vitaminas' element={<Vitamin />} />
                <Route path='proteinas' element={<Protein />} />
                <Route path='colagenos' element={<Collagen />} />

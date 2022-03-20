@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import useSWR from 'swr';
 import Swal from 'sweetalert2';
 
+import { addNewProduct } from '../../actions/cart';
 import { setFormatPrice } from '../../helpers/setFormatPrice';
 import { fetcher } from '../../utils/fetcher';
-import { addNewProduct } from '../../actions/cart';
 
 export const ProductSelected = () => {
-
 
    const dispatch = useDispatch();
 
    const [counter, setCounter] = useState(1);
    const [isMin, setIsMin] = useState(false);
+   const { _id } = useSelector(state => state.auth);
 
    const { code: codeParam, name } = useParams();
 
@@ -28,21 +28,27 @@ export const ProductSelected = () => {
    const formatPrice = setFormatPrice(price);
    const total = counter * price;
 
-   console.log(code, nameProduct, price, cant, category, url, name);
-
    const handleCart = () => {
-      Swal.fire({
-         position: 'center',
-         icon: 'success',
-         title: `${name}x${counter} se ha añadido al carrito`,
-         showConfirmButton: false,
-         timer: 2000
-      })
-      dispatch(addNewProduct(code, nameProduct, total, counter, category, url, counter, price));
+      if (_id) {
+         Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `(${name})x${counter} se ha añadido al carrito`,
+            showConfirmButton: false,
+            timer: 2000
+         })
+         dispatch(addNewProduct(code, nameProduct, total, cant, category, url, counter, price));
+      } else {
+         Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Debes iniciar sesión para poder agregar productos al carrito'
+         })
+      }
    }
 
    return (
-      <div className="container mx-auto px-6 mt-20 pt-20">
+      <div className="container mx-auto px-6 mt-20 mb-20 pt-20">
          <div className="md:flex md:items-center">
             <div className="w-full h-64 md:w-1/2 lg:h-96">
                <img className="h-full w-full rounded-md object-cover max-w-lg mx-auto" src={url} alt={nameProduct} />
@@ -57,16 +63,6 @@ export const ProductSelected = () => {
                      <button
                         className="text-gray-500 focus:outline-none focus:text-gray-600"
                         onClick={() => {
-                           setCounter(counter + 1)
-                           setIsMin(false);
-                        }}
-                     >
-                        <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                     </button>
-                     <span className="text-gray-700 text-xl font-semibold mx-2">{counter}</span>
-                     <button
-                        className="text-gray-500 focus:outline-none focus:text-gray-600"
-                        onClick={() => {
                            if (counter === 1) {
                               setIsMin(true);
                            } else {
@@ -76,6 +72,18 @@ export const ProductSelected = () => {
                         disabled={isMin}
                      >
                         <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                     </button>
+
+                     <span className="text-gray-700 text-xl font-semibold mx-2">{counter}</span>
+
+                     <button
+                        className="text-gray-500 focus:outline-none focus:text-gray-600"
+                        onClick={() => {
+                           setCounter(counter + 1)
+                           setIsMin(false);
+                        }}
+                     >
+                        <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                      </button>
                   </div>
                </div>

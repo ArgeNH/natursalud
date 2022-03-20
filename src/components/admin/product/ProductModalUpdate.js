@@ -46,6 +46,9 @@ export const ProductModalUpdate = ({ code, modal, nameProduct: name, category: t
                confirmButtonText: 'Ok'
             })
             modal(false);
+            setTimeout(() => {
+               window.location.reload();
+            }, 2000);
          })
          .catch(err => console.error(err))
    }

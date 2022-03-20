@@ -33,6 +33,7 @@ export const AuthLogin = () => {
       e.preventDefault();
       if (isValid()) {
          dispatch(startLoginWithEmailAndPassword(email, password));
+         localStorage.setItem('auth', true);
       }
    }
 

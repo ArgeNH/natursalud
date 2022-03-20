@@ -12,6 +12,10 @@ import { startChecking } from '../actions/auth';
 export const AppRouter = () => {
 
    const dispatch = useDispatch();
+   //const { _id: id } = useSelector(state => state.auth);
+   const auth = JSON.parse(localStorage.getItem('auth'));
+   console.log(typeof auth);
+   console.log(auth);
 
    useEffect(() => {
       dispatch(startChecking());
@@ -21,31 +25,16 @@ export const AppRouter = () => {
       <BrowserRouter>
          <Routes>
 
-            <Route
-               path='/login'
-               element={
-                  <PublicRoute>
-                     <AuthLogin />
-                  </PublicRoute>
-               }
-            />
+            <Route path='/*' element={<PublicRoute checking={auth} />}>
+               <Route path='login' element={<AuthLogin />} />
+               <Route path='register' element={<AuthRegister />} />
+            </Route>
 
-            <Route
-               path='/register'
-               element={
-                  <PublicRoute>
-                     <AuthRegister />
-                  </PublicRoute>
-               }
-            />
 
-            <Route path='/*'
-               element={
-                  <PrivateRoute >
-                     <DashboardRoutes />
-                  </PrivateRoute>
-               }
-            />
+            <Route path='/*' element={<PrivateRoute checking={auth} />} history={history}>
+               <Route path='*' element={<DashboardRoutes />} />
+            </Route>
+
          </Routes>
       </BrowserRouter>
    )

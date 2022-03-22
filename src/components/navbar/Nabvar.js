@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../actions/auth';
+import { getImage } from '../../helpers/getImage';
 
 export const Nabvar = () => {
 
@@ -26,7 +27,8 @@ export const Nabvar = () => {
       <>
          <Nav>
             <Logo to='/'>
-               Natursalud
+               <img src={getImage('./logo2.png')} alt="Natursalud" className='w-32 h-16 object-cover' />
+
             </Logo>
             <Hamburger onClick={open}>
                <span />

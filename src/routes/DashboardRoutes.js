@@ -17,6 +17,7 @@ import { ProductScreen } from '../components/product/ProductScreen';
 import { ProductSelected } from '../components/product/ProductSelected';
 import { Success } from '../components/home/Success';
 import { Cancel } from '../components/home/Cancel';
+import { About } from '../components/home/About';
 
 export const DashboardRoutes = () => {
    return (
@@ -39,7 +40,7 @@ export const DashboardRoutes = () => {
                <Route path='compra' element={<ShoppingScreen />} />
                <Route path='gracias' element={<Success />} />
                <Route path='cancelado' element={<Cancel />} />
-
+               <Route path='about' element={<About />} />
                <Route path='*' element={<Navigate to='/404' />} />
             </Routes>
          </div>

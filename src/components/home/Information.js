@@ -6,9 +6,6 @@ export const Information = () => {
       <section className="text-gray-600 body-font bg-gray-100 mt-5 rounded-lg border border-1 border-slate-300">
          <div className="container px-5 pt-20 mx-auto flex flex-col">
             <div className="lg:w-4/6 mx-auto">
-               {/* <div className="rounded-lg h-64 overflow-hidden">
-                  <img alt="content" className="object-center h-full w-full xl:object-cover" src="/assets/logo.png" />
-               </div> */}
                <div className="flex flex-col sm:flex-row mt-2">
                   <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
 

@@ -6,10 +6,6 @@ import { useForm } from '../../../hooks/useForm';
 import { InputProduct } from './InputProduct';
 
 
-/* const url = `https://natursalud.herokuapp.com/api/product/${code}`
-const { data } = useSWR(url, fetcher);
-
-if (!data) return <div>loading...</div> */
 
 export const ProductModalUpdate = ({ code, modal, nameProduct: name, category: type, price: cash, cant: stock }) => {
 

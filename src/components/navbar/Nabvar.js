@@ -9,8 +9,9 @@ export const Nabvar = () => {
 
    const navigate = useNavigate();
 
+   const { role, checking, name, lastName } = useSelector(state => state.auth);
 
-   const { role, checking } = useSelector(state => state.auth);
+
    const { products } = useSelector(state => state.cart);
    const dispatch = useDispatch();
    const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,6 @@ export const Nabvar = () => {
    const open = () => setIsOpen(!isOpen);
 
    const handleLogout = () => {
-      //Todo: validatte with checking
       dispatch(logoutUser());
       navigate('/login', { replace: true });
    }
@@ -38,7 +38,6 @@ export const Nabvar = () => {
             <Menu isOpen={isOpen}>
                <MenuLink to='/' onClick={open}>Inicio</MenuLink>
                {role === 'ADMIN' && <MenuLink to='/productos' onClick={open}>Productos</MenuLink>}
-               {/* <MenuLink to='/promociones' onClick={open}>Promociones</MenuLink> */}
                <MenuLink to='/compra' onClick={open}>
                   🛒
                   {
@@ -50,12 +49,17 @@ export const Nabvar = () => {
                   }
                </MenuLink>
                <MenuLink to='/login' onClick={handleLogout}>{checking ? "Logout" : "Login"}</MenuLink>
+               <Separator>|</Separator>
+               <NameUser to='/' >Bienvenido <span>{name !== undefined ? ` ${name} ${lastName}` : 'Cliente'}</span></NameUser>
             </Menu>
          </Nav>
       </>
    )
 }
 
+const Separator = styled.p`
+      color: #67bc98;
+`;
 const MenuLink = styled(Link)`
       padding: 1rem 2rem;
       cursor: pointer;
@@ -65,6 +69,20 @@ const MenuLink = styled(Link)`
       transition: all 0.3s ease-in;
       font-size: 1.2rem;
       font-weight: bolder;
+`;
+
+const NameUser = styled.h1`
+      padding: 1rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      color: #67bc98;
+      transition: all 0.3s ease-in;
+      font-size: 1.3rem;
+      font-weight: bolder;
+      span {
+         font-weight: 300;
+         font-size: 1.3rem;
+      }
 `;
 
 const Nav = styled.div`
@@ -84,7 +102,7 @@ const Nav = styled.div`
 
 const Logo = styled(Link)`
       padding: 1rem 0;
-      color: #7b7fda;
+      color: #67bc98;
       text-decoration: none;
       font-weight: 800;
       font-size: 1.9rem;
@@ -115,7 +133,7 @@ const Hamburger = styled.div`
       span {
          height: 2px;
          width: 25px;
-         background: #7b7fda;
+         background: #67bc98;
          margin-bottom: 4px;
          border-radius: 5px;
       }

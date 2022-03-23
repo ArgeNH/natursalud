@@ -80,7 +80,7 @@ export const DataProduct = ({ url, code, nameProduct, category, price, cant }) =
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <button
-                        className="mr-1 p-2 pl-5 pr-5 bg-blue-500 text-gray-100 text-base rounded-lg focus:border-4 border-blue-300"
+                        className="mr-1 p-2 pl-5 pr-5 bg-[#67bc98] text-gray-100 hover:bg-[#66e3ac] text-base rounded-lg focus:outline-none focus:focus-[#66e3ac]"
                         onClick={() => setModal(!modal)}
                     >
                         Actualizar

@@ -60,6 +60,7 @@ export const Nabvar = () => {
 const Separator = styled.p`
       color: #67bc98;
 `;
+
 const MenuLink = styled(Link)`
       padding: 1rem 2rem;
       cursor: pointer;

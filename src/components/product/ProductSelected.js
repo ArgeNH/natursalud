@@ -14,6 +14,7 @@ export const ProductSelected = () => {
 
    const [counter, setCounter] = useState(1);
    const [isMin, setIsMin] = useState(false);
+   const [isMax, setIsMax] = useState(false);
    const { _id } = useSelector(state => state.auth);
 
    const { code: codeParam, name } = useParams();
@@ -59,38 +60,53 @@ export const ProductSelected = () => {
                <hr className="my-3" />
                <div className="mt-2">
                   <label className="text-gray-700 tNameext-sm">Cantidad:</label>
-                  <div className="flex items-center mt-1">
-                     <button
-                        className="text-gray-500 focus:outline-none focus:text-gray-600"
-                        onClick={() => {
-                           if (counter === 1) {
-                              setIsMin(true);
-                           } else {
-                              setCounter(counter - 1);
-                           }
-                        }}
-                        disabled={isMin}
-                     >
-                        <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                     </button>
 
-                     <span className="text-gray-700 text-xl font-semibold mx-2">{counter}</span>
+                  {cant === 0 ? <h1 className="text-red-600">No hay stock 😢</h1> :
 
-                     <button
-                        className="text-gray-500 focus:outline-none focus:text-gray-600"
-                        onClick={() => {
-                           setCounter(counter + 1)
-                           setIsMin(false);
-                        }}
-                     >
-                        <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                     </button>
-                  </div>
+                     (<div className="flex items-center mt-1">
+
+
+                        <button
+                           className="text-gray-500 focus:outline-none focus:text-gray-600"
+                           onClick={() => {
+                              setIsMax(false);
+                              if (counter === 1) {
+                                 setIsMin(true);
+                              } else {
+                                 setCounter(counter - 1);
+                              }
+                           }}
+                           disabled={isMin}
+                        >
+                           <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </button>
+
+                        <span className="text-gray-700 text-xl font-semibold mx-2">{counter}</span>
+                        <button
+                           className="text-gray-500 focus:outline-none focus:text-gray-600"
+                           onClick={() => {
+                              setIsMin(false);
+                              if (counter === cant) {
+                                 setIsMax(true);
+                              } else {
+                                 setCounter(counter + 1);
+                              }
+                           }}
+                           disabled={isMax}
+                        >
+                           <svg className="h-7 w-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </button>
+                     </div>)
+
+
+                  }
+
                </div>
                <div className="flex items-center mt-6">
                   <button
-                     className="px-8 py-2 bg-indigo-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500"
+                     className={cant===0 ? "px-8 py-2 bg-gray-600 text-white text-sm font-medium rounded" : "px-8 py-2 bg-[#67bc98] text-white text-sm font-medium rounded hover:bg-[#66e3ac]  focus:outline-none focus:focus-[#66e3ac]"}
                      onClick={handleCart}
+                     disabled={cant === 0}
                   >
                      Agregar al carrito
                   </button>

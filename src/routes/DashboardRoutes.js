@@ -11,10 +11,12 @@ import { Medicine } from '../components/product/category/Medicine';
 import { Cosmetic } from '../components/product/category/Cosmetic';
 import { Others } from '../components/product/category/Others';
 import { Collagen } from '../components/product/category/Collagen';
-import { Protein} from '../components/product/category/Protein';
+import { Protein } from '../components/product/category/Protein';
 import { Vitamin } from '../components/product/category/Vitamin';
 import { ProductScreen } from '../components/product/ProductScreen';
 import { ProductSelected } from '../components/product/ProductSelected';
+import { Success } from '../components/home/Success';
+import { Cancel } from '../components/home/Cancel';
 
 export const DashboardRoutes = () => {
    return (
@@ -35,6 +37,8 @@ export const DashboardRoutes = () => {
                <Route path='productos/:code/:name' element={<ProductSelected />} />
                <Route path='productos' element={<ProductScreen />} />
                <Route path='compra' element={<ShoppingScreen />} />
+               <Route path='gracias' element={<Success />} />
+               <Route path='cancelado' element={<Cancel />} />
 
                <Route path='*' element={<Navigate to='/404' />} />
             </Routes>
